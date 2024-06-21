@@ -31,14 +31,12 @@ namespace Handy_Of_Plug_Scarlet_Blood_Fury
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_admin));
             this.DataBaseGrid = new System.Windows.Forms.DataGridView();
-            this.ID_Box = new System.Windows.Forms.TextBox();
             this.ID = new System.Windows.Forms.Label();
             this.Mark = new System.Windows.Forms.Label();
             this.Mark_Box = new System.Windows.Forms.TextBox();
             this.Owner = new System.Windows.Forms.Label();
             this.Owner_Box = new System.Windows.Forms.TextBox();
             this.Date = new System.Windows.Forms.Label();
-            this.Date_Box = new System.Windows.Forms.TextBox();
             this.Price = new System.Windows.Forms.Label();
             this.Price_Box = new System.Windows.Forms.TextBox();
             this.Discount = new System.Windows.Forms.Label();
@@ -51,7 +49,10 @@ namespace Handy_Of_Plug_Scarlet_Blood_Fury
             this.Close_butt = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.Date2_Box = new System.Windows.Forms.TextBox();
+            this.Date_Box = new System.Windows.Forms.MaskedTextBox();
+            this.Date2_Box = new System.Windows.Forms.MaskedTextBox();
+            this.ID_Box = new System.Windows.Forms.TextBox();
+            this.Status_ComboBox = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.DataBaseGrid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -64,17 +65,6 @@ namespace Handy_Of_Plug_Scarlet_Blood_Fury
             this.DataBaseGrid.Size = new System.Drawing.Size(1170, 284);
             this.DataBaseGrid.TabIndex = 0;
             this.DataBaseGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataBaseGrid_CellContentClick);
-            // 
-            // ID_Box
-            // 
-            this.ID_Box.BackColor = System.Drawing.Color.Gray;
-            this.ID_Box.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ID_Box.ForeColor = System.Drawing.Color.White;
-            this.ID_Box.Location = new System.Drawing.Point(12, 348);
-            this.ID_Box.Name = "ID_Box";
-            this.ID_Box.Size = new System.Drawing.Size(81, 20);
-            this.ID_Box.TabIndex = 1;
-            this.ID_Box.TextChanged += new System.EventHandler(this.ID_Box_TextChanged);
             // 
             // ID
             // 
@@ -138,17 +128,6 @@ namespace Handy_Of_Plug_Scarlet_Blood_Fury
             this.Date.TabIndex = 8;
             this.Date.Text = "Дата и время въезда";
             this.Date.Click += new System.EventHandler(this.Date_Click);
-            // 
-            // Date_Box
-            // 
-            this.Date_Box.BackColor = System.Drawing.Color.Gray;
-            this.Date_Box.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.Date_Box.ForeColor = System.Drawing.Color.White;
-            this.Date_Box.Location = new System.Drawing.Point(283, 348);
-            this.Date_Box.Name = "Date_Box";
-            this.Date_Box.Size = new System.Drawing.Size(118, 20);
-            this.Date_Box.TabIndex = 7;
-            this.Date_Box.TextChanged += new System.EventHandler(this.Date_Box_TextChanged);
             // 
             // Price
             // 
@@ -290,9 +269,22 @@ namespace Handy_Of_Plug_Scarlet_Blood_Fury
             this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(733, 332);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(123, 13);
+            this.label2.Size = new System.Drawing.Size(118, 13);
             this.label2.TabIndex = 20;
-            this.label2.Text = "Датат и время выезда";
+            this.label2.Text = "Дата и время выезда";
+            // 
+            // Date_Box
+            // 
+            this.Date_Box.BackColor = System.Drawing.Color.Gray;
+            this.Date_Box.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Date_Box.ForeColor = System.Drawing.Color.White;
+            this.Date_Box.Location = new System.Drawing.Point(286, 348);
+            this.Date_Box.Mask = "00-00-0000 90:00";
+            this.Date_Box.Name = "Date_Box";
+            this.Date_Box.Size = new System.Drawing.Size(114, 20);
+            this.Date_Box.TabIndex = 22;
+            this.Date_Box.ValidatingType = typeof(System.DateTime);
+            this.Date_Box.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.maskedTextBox1_MaskInputRejected);
             // 
             // Date2_Box
             // 
@@ -300,10 +292,33 @@ namespace Handy_Of_Plug_Scarlet_Blood_Fury
             this.Date2_Box.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Date2_Box.ForeColor = System.Drawing.Color.White;
             this.Date2_Box.Location = new System.Drawing.Point(736, 348);
+            this.Date2_Box.Mask = "00/00/0000 90:00";
             this.Date2_Box.Name = "Date2_Box";
             this.Date2_Box.Size = new System.Drawing.Size(120, 20);
-            this.Date2_Box.TabIndex = 21;
-            this.Date2_Box.TextChanged += new System.EventHandler(this.Date2_Box_TextChanged);
+            this.Date2_Box.TabIndex = 23;
+            this.Date2_Box.ValidatingType = typeof(System.DateTime);
+            // 
+            // ID_Box
+            // 
+            this.ID_Box.BackColor = System.Drawing.Color.Gray;
+            this.ID_Box.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ID_Box.ForeColor = System.Drawing.Color.White;
+            this.ID_Box.Location = new System.Drawing.Point(12, 348);
+            this.ID_Box.Name = "ID_Box";
+            this.ID_Box.Size = new System.Drawing.Size(81, 20);
+            this.ID_Box.TabIndex = 1;
+            this.ID_Box.TextChanged += new System.EventHandler(this.ID_Box_TextChanged);
+            // 
+            // Status_ComboBox
+            // 
+            this.Status_ComboBox.BackColor = System.Drawing.Color.Gray;
+            this.Status_ComboBox.ForeColor = System.Drawing.Color.White;
+            this.Status_ComboBox.FormattingEnabled = true;
+            this.Status_ComboBox.Location = new System.Drawing.Point(862, 347);
+            this.Status_ComboBox.Name = "Status_ComboBox";
+            this.Status_ComboBox.Size = new System.Drawing.Size(121, 21);
+            this.Status_ComboBox.TabIndex = 24;
+            this.Status_ComboBox.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // Form_admin
             // 
@@ -311,7 +326,9 @@ namespace Handy_Of_Plug_Scarlet_Blood_Fury
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkGray;
             this.ClientSize = new System.Drawing.Size(1194, 426);
+            this.Controls.Add(this.Status_ComboBox);
             this.Controls.Add(this.Date2_Box);
+            this.Controls.Add(this.Date_Box);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Close_butt);
@@ -325,7 +342,6 @@ namespace Handy_Of_Plug_Scarlet_Blood_Fury
             this.Controls.Add(this.Price);
             this.Controls.Add(this.Price_Box);
             this.Controls.Add(this.Date);
-            this.Controls.Add(this.Date_Box);
             this.Controls.Add(this.Owner);
             this.Controls.Add(this.Owner_Box);
             this.Controls.Add(this.Mark);
@@ -349,14 +365,12 @@ namespace Handy_Of_Plug_Scarlet_Blood_Fury
         #endregion
 
         private System.Windows.Forms.DataGridView DataBaseGrid;
-        private System.Windows.Forms.TextBox ID_Box;
         private System.Windows.Forms.Label ID;
         private System.Windows.Forms.Label Mark;
         private System.Windows.Forms.TextBox Mark_Box;
         private System.Windows.Forms.Label Owner;
         private System.Windows.Forms.TextBox Owner_Box;
         private System.Windows.Forms.Label Date;
-        private System.Windows.Forms.TextBox Date_Box;
         private System.Windows.Forms.Label Price;
         private System.Windows.Forms.TextBox Price_Box;
         private System.Windows.Forms.Label Discount;
@@ -369,6 +383,9 @@ namespace Handy_Of_Plug_Scarlet_Blood_Fury
         private System.Windows.Forms.Button Close_butt;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox Date2_Box;
+        private System.Windows.Forms.MaskedTextBox Date_Box;
+        private System.Windows.Forms.MaskedTextBox Date2_Box;
+        private System.Windows.Forms.TextBox ID_Box;
+        private System.Windows.Forms.ComboBox Status_ComboBox;
     }
 }

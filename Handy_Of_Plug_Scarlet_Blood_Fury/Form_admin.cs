@@ -22,6 +22,10 @@ namespace Handy_Of_Plug_Scarlet_Blood_Fury
             string relativePath = Path.Combine(projectDirectory, @"DB\bd auto.accdb");
 
             connectionString = $@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source={relativePath}";
+
+            // Добавляем значения в ComboBox
+            Status_ComboBox.Items.Add("Активен");
+            Status_ComboBox.Items.Add("Не активен");
         }
 
         private void Form_admin_Load(object sender, EventArgs e)
@@ -101,8 +105,8 @@ namespace Handy_Of_Plug_Scarlet_Blood_Fury
                 try
                 {
                     connection.Open();
-                    string query = "INSERT INTO avto (ID, [Марка автомобиля], Владелец, [Дата и время въезда], [Дата и время выезда], [Стоимость стоянки], Скидки, [Задолженности по оплате]) " +
-                                   "VALUES (@ID, @Марка_автомобиля, @Владелец, @Дата_и_время_въезда, @Дата_и_время_выезда, @Стоимость_стоянки, @Скидки, @Задолженности_по_оплате)";
+                    string query = "INSERT INTO avto (ID, [Марка автомобиля], Владелец, [Дата и время въезда], [Дата и время выезда], [Стоимость стоянки], Скидки, [Задолженности по оплате], Статус) " +
+                                   "VALUES (@ID, @Марка_автомобиля, @Владелец, @Дата_и_время_въезда, @Дата_и_время_выезда, @Стоимость_стоянки, @Скидки, @Задолженности_по_оплате, @Статус)";
                     using (OleDbCommand command = new OleDbCommand(query, connection))
                     {
                         command.Parameters.AddWithValue("@ID", ID_Box.Text);
@@ -113,6 +117,7 @@ namespace Handy_Of_Plug_Scarlet_Blood_Fury
                         command.Parameters.AddWithValue("@Стоимость_стоянки", Price_Box.Text);
                         command.Parameters.AddWithValue("@Скидки", Discounts_Box.Text);
                         command.Parameters.AddWithValue("@Задолженности_по_оплате", Debt_Box.Text);
+                        command.Parameters.AddWithValue("@Статус", Status_ComboBox.SelectedItem.ToString());
 
                         command.ExecuteNonQuery();
                         MessageBox.Show("Данные успешно добавлены!");
@@ -133,7 +138,7 @@ namespace Handy_Of_Plug_Scarlet_Blood_Fury
                 try
                 {
                     connection.Open();
-                    string query = "UPDATE avto SET [Марка автомобиля]=@Марка_автомобиля, Владелец=@Владелец, [Дата и время въезда]=@Дата_и_время_въезда, [Дата и время выезда]=@Дата_и_время_выезда, [Стоимость стоянки]=@Стоимость_стоянки, Скидки=@Скидки, [Задолженности по оплате]=@Задолженности_по_оплате WHERE ID=@ID";
+                    string query = "UPDATE avto SET [Марка автомобиля]=@Марка_автомобиля, Владелец=@Владелец, [Дата и время въезда]=@Дата_и_время_въезда, [Дата и время выезда]=@Дата_и_время_выезда, [Стоимость стоянки]=@Стоимость_стоянки, Скидки=@Скидки, [Задолженности по оплате]=@Задолженности_по_оплате,[Статус] Статус=@Статус WHERE ID=@ID";
                     using (OleDbCommand command = new OleDbCommand(query, connection))
                     {
                         command.Parameters.AddWithValue("@Марка_автомобиля", Mark_Box.Text);
@@ -143,6 +148,7 @@ namespace Handy_Of_Plug_Scarlet_Blood_Fury
                         command.Parameters.AddWithValue("@Стоимость_стоянки", Price_Box.Text);
                         command.Parameters.AddWithValue("@Скидки", Discounts_Box.Text);
                         command.Parameters.AddWithValue("@Задолженности_по_оплате", Debt_Box.Text);
+                        command.Parameters.AddWithValue("@Статус", Status_ComboBox.SelectedItem.ToString());
                         command.Parameters.AddWithValue("@ID", ID_Box.Text);
 
                         command.ExecuteNonQuery();
@@ -195,6 +201,16 @@ namespace Handy_Of_Plug_Scarlet_Blood_Fury
         }
 
         private void Date_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void maskedTextBox1_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
