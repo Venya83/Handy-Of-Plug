@@ -141,8 +141,20 @@ namespace Handy_Of_Plug_Scarlet_Blood_Fury
             // Создаем экземпляр формы Form_about
             Form_about aboutForm = new Form_about();
 
-            // Отображаем форму
+            // Показываем overlay panel
+            overlayPanel.Visible = true;
+
+            // Отключаем форму входа
+            this.Enabled = false;
+
+            // Отображаем форму about
             aboutForm.ShowDialog();
+
+            // Включаем форму входа после закрытия aboutForm
+            this.Enabled = true;
+
+            // Скрываем overlay panel
+            overlayPanel.Visible = false;
         }
     }
 }

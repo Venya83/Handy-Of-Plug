@@ -21,5 +21,10 @@ namespace Handy_Of_Plug_Scarlet_Blood_Fury
         {
 
         }
+
+        private void Close_butt_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

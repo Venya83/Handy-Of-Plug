@@ -259,6 +259,7 @@ namespace Handy_Of_Plug_Scarlet_Blood_Fury
             // Close_butt
             // 
             this.Close_butt.BackColor = System.Drawing.Color.Transparent;
+            this.Close_butt.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Close_butt.FlatAppearance.BorderSize = 0;
             this.Close_butt.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.Close_butt.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
