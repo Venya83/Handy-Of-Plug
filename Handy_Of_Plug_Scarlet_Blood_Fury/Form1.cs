@@ -24,6 +24,9 @@ namespace Handy_Of_Plug_Scarlet_Blood_Fury
 
             // Initialize overlay panel
             InitializeOverlayPanel();
+
+            // Привязка обработчика события к кнопке About_butt
+            About_butt.Click += new EventHandler(About_butt_Click);
         }
 
         private void InitializeProfiles()
@@ -131,6 +134,15 @@ namespace Handy_Of_Plug_Scarlet_Blood_Fury
             {
                 MessageBox.Show($"Error loading background image: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void About_butt_Click(object sender, EventArgs e)
+        {
+            // Создаем экземпляр формы Form_about
+            Form_about aboutForm = new Form_about();
+
+            // Отображаем форму
+            aboutForm.ShowDialog();
         }
     }
 }

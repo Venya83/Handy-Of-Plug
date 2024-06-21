@@ -37,6 +37,7 @@ namespace Handy_Of_Plug_Scarlet_Blood_Fury
             this.close_butt = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.About_butt = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.Logo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -50,11 +51,12 @@ namespace Handy_Of_Plug_Scarlet_Blood_Fury
             this.login_butt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.login_butt.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.login_butt.ForeColor = System.Drawing.Color.White;
-            this.login_butt.Location = new System.Drawing.Point(191, 631);
+            this.login_butt.Location = new System.Drawing.Point(147, 565);
             this.login_butt.Name = "login_butt";
             this.login_butt.Size = new System.Drawing.Size(101, 31);
             this.login_butt.TabIndex = 0;
             this.login_butt.Text = "Войти";
+            this.login_butt.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.login_butt.UseVisualStyleBackColor = false;
             this.login_butt.Click += new System.EventHandler(this.login_butt_Click);
             // 
@@ -65,7 +67,7 @@ namespace Handy_Of_Plug_Scarlet_Blood_Fury
             this.user_comboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.user_comboBox.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.user_comboBox.FormattingEnabled = true;
-            this.user_comboBox.Location = new System.Drawing.Point(133, 564);
+            this.user_comboBox.Location = new System.Drawing.Point(338, 568);
             this.user_comboBox.Name = "user_comboBox";
             this.user_comboBox.Size = new System.Drawing.Size(230, 26);
             this.user_comboBox.TabIndex = 1;
@@ -75,7 +77,7 @@ namespace Handy_Of_Plug_Scarlet_Blood_Fury
             // 
             this.password_Box.BackColor = System.Drawing.Color.LightGray;
             this.password_Box.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.password_Box.Location = new System.Drawing.Point(133, 596);
+            this.password_Box.Location = new System.Drawing.Point(657, 568);
             this.password_Box.Name = "password_Box";
             this.password_Box.PasswordChar = '*';
             this.password_Box.Size = new System.Drawing.Size(230, 24);
@@ -103,11 +105,12 @@ namespace Handy_Of_Plug_Scarlet_Blood_Fury
             this.close_butt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.close_butt.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.close_butt.ForeColor = System.Drawing.Color.White;
-            this.close_butt.Location = new System.Drawing.Point(191, 668);
+            this.close_butt.Location = new System.Drawing.Point(147, 642);
             this.close_butt.Name = "close_butt";
             this.close_butt.Size = new System.Drawing.Size(101, 34);
             this.close_butt.TabIndex = 4;
             this.close_butt.Text = "Выход";
+            this.close_butt.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.close_butt.UseVisualStyleBackColor = false;
             this.close_butt.Click += new System.EventHandler(this.close_butt_Click);
             // 
@@ -117,7 +120,7 @@ namespace Handy_Of_Plug_Scarlet_Blood_Fury
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(67, 601);
+            this.label1.Location = new System.Drawing.Point(591, 573);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(60, 16);
             this.label1.TabIndex = 5;
@@ -129,11 +132,29 @@ namespace Handy_Of_Plug_Scarlet_Blood_Fury
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(77, 569);
+            this.label2.Location = new System.Drawing.Point(282, 573);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(50, 16);
             this.label2.TabIndex = 6;
             this.label2.Text = "Логин:";
+            // 
+            // About_butt
+            // 
+            this.About_butt.BackColor = System.Drawing.Color.Transparent;
+            this.About_butt.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.About_butt.FlatAppearance.BorderSize = 0;
+            this.About_butt.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.About_butt.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.About_butt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.About_butt.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.About_butt.ForeColor = System.Drawing.Color.White;
+            this.About_butt.Location = new System.Drawing.Point(147, 602);
+            this.About_butt.Name = "About_butt";
+            this.About_butt.Size = new System.Drawing.Size(132, 34);
+            this.About_butt.TabIndex = 7;
+            this.About_butt.Text = "О программе";
+            this.About_butt.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.About_butt.UseVisualStyleBackColor = false;
             // 
             // Form_Login
             // 
@@ -142,6 +163,7 @@ namespace Handy_Of_Plug_Scarlet_Blood_Fury
             this.BackColor = System.Drawing.Color.Black;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1920, 1080);
+            this.Controls.Add(this.About_butt);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.close_butt);
@@ -170,6 +192,7 @@ namespace Handy_Of_Plug_Scarlet_Blood_Fury
         private System.Windows.Forms.Button close_butt;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button About_butt;
     }
 }
 

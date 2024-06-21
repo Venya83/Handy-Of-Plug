@@ -53,3 +53,4 @@ C:\Users\student\Source\Repos\Venya83\Handy-Of-Plug\Handy_Of_Plug_Scarlet_Blood_
 C:\Users\student\Source\Repos\Venya83\Handy-Of-Plug\Handy_Of_Plug_Scarlet_Blood_Fury\obj\Debug\Handy_Of_Plug_Scarlet_Blood_Fury.csproj.CoreCompileInputs.cache
 C:\Users\student\Source\Repos\Venya83\Handy-Of-Plug\Handy_Of_Plug_Scarlet_Blood_Fury\obj\Debug\Handy_Of_Plug_Scarlet_Blood_Fury.exe
 C:\Users\student\Source\Repos\Venya83\Handy-Of-Plug\Handy_Of_Plug_Scarlet_Blood_Fury\obj\Debug\Handy_Of_Plug_Scarlet_Blood_Fury.pdb
+C:\Users\student\Source\Repos\Venya83\Handy-Of-Plug\Handy_Of_Plug_Scarlet_Blood_Fury\obj\Debug\Handy_Of_Plug_Scarlet_Blood_Fury.Form_about.resources
