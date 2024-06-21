@@ -16,15 +16,12 @@ namespace Handy_Of_Plug_Scarlet_Blood_Fury
             // Добавляем свойство для DataBaseGrid
             DataBaseGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
-            // Получаем текущий каталог приложения и поднимаемся на несколько уровней вверх
+            // Задаем относительный путь к базе данных
             string baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
-            string projectDirectory = Path.GetFullPath(Path.Combine(baseDirectory, @"..\..\..\..\"));
+            string projectDirectory = Directory.GetParent(baseDirectory).Parent.Parent.FullName;
+            string relativePath = Path.Combine(projectDirectory, @"DB\bd auto.accdb");
 
-            // Задаем путь к базе данных относительно корня проекта
-            string relativePath = @"Scarlet Blood Fury\DB\bd auto.accdb";
-            string fullPath = Path.Combine(projectDirectory, relativePath);
-
-            connectionString = $@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source={fullPath}";
+            connectionString = $@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source={relativePath}";
         }
 
         private void Form_admin_Load(object sender, EventArgs e)
