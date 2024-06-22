@@ -105,11 +105,11 @@ namespace Handy_Of_Plug_Scarlet_Blood_Fury
                 try
                 {
                     connection.Open();
-                    string query = "INSERT INTO avto (ID, [Марка автомобиля], Владелец, [Дата и время въезда], [Дата и время выезда], [Стоимость стоянки], Скидки, [Задолженности по оплате], Статус) " +
-                                   "VALUES (@ID, @Марка_автомобиля, @Владелец, @Дата_и_время_въезда, @Дата_и_время_выезда, @Стоимость_стоянки, @Скидки, @Задолженности_по_оплате, @Статус)";
+                    string query = "INSERT INTO avto ([Номер авто], [Марка автомобиля], Владелец, [Дата и время въезда], [Дата и время выезда], [Стоимость стоянки], Скидки, [Задолженности по оплате], Статус) " +
+                                   "VALUES (@Номер_авто, @Марка_автомобиля, @Владелец, @Дата_и_время_въезда, @Дата_и_время_выезда, @Стоимость_стоянки, @Скидки, @Задолженности_по_оплате, @Статус)";
                     using (OleDbCommand command = new OleDbCommand(query, connection))
                     {
-                        command.Parameters.AddWithValue("@ID", ID_Box.Text);
+                        command.Parameters.AddWithValue("@Номер_авто", ID_Box.Text);
                         command.Parameters.AddWithValue("@Марка_автомобиля", Mark_Box.Text);
                         command.Parameters.AddWithValue("@Владелец", Owner_Box.Text);
                         command.Parameters.AddWithValue("@Дата_и_время_въезда", Date_Box.Text);
@@ -132,54 +132,79 @@ namespace Handy_Of_Plug_Scarlet_Blood_Fury
         }
 
         private void Edit_butt_Click(object sender, EventArgs e)
+{
+    if (DataBaseGrid.SelectedRows.Count > 0)
+    {
+        var id = DataBaseGrid.SelectedRows[0].Cells["Номер авто"].Value.ToString();
+        using (OleDbConnection connection = new OleDbConnection(connectionString))
         {
-            using (OleDbConnection connection = new OleDbConnection(connectionString))
+            try
             {
-                try
+                connection.Open();
+                string query = "UPDATE avto SET [Марка автомобиля]=@Марка_автомобиля, Владелец=@Владелец, [Дата и время въезда]=@Дата_и_время_въезда, [Дата и время выезда]=@Дата_и_время_выезда, [Стоимость стоянки]=@Стоимость_стоянки, Скидки=@Скидки, [Задолженности по оплате]=@Задолженности_по_оплате, [Статус]=@Статус WHERE [Номер авто]=@Номер_авто";
+                using (OleDbCommand command = new OleDbCommand(query, connection))
                 {
-                    connection.Open();
-                    string query = "UPDATE avto SET [Марка автомобиля]=@Марка_автомобиля, Владелец=@Владелец, [Дата и время въезда]=@Дата_и_время_въезда, [Дата и время выезда]=@Дата_и_время_выезда, [Стоимость стоянки]=@Стоимость_стоянки, Скидки=@Скидки, [Задолженности по оплате]=@Задолженности_по_оплате,[Статус] Статус=@Статус WHERE ID=@ID";
-                    using (OleDbCommand command = new OleDbCommand(query, connection))
-                    {
-                        command.Parameters.AddWithValue("@Марка_автомобиля", Mark_Box.Text);
-                        command.Parameters.AddWithValue("@Владелец", Owner_Box.Text);
-                        command.Parameters.AddWithValue("@Дата_и_время_въезда", Date_Box.Text);
-                        command.Parameters.AddWithValue("@Дата_и_время_выезда", Date2_Box.Text);
-                        command.Parameters.AddWithValue("@Стоимость_стоянки", Price_Box.Text);
-                        command.Parameters.AddWithValue("@Скидки", Discounts_Box.Text);
-                        command.Parameters.AddWithValue("@Задолженности_по_оплате", Debt_Box.Text);
-                        command.Parameters.AddWithValue("@Статус", Status_ComboBox.SelectedItem.ToString());
-                        command.Parameters.AddWithValue("@ID", ID_Box.Text);
+                    command.Parameters.AddWithValue("@Марка_автомобиля", Mark_Box.Text);
+                    command.Parameters.AddWithValue("@Владелец", Owner_Box.Text);
+                    command.Parameters.AddWithValue("@Дата_и_время_въезда", Date_Box.Text);
+                    command.Parameters.AddWithValue("@Дата_и_время_выезда", Date2_Box.Text);
+                    command.Parameters.AddWithValue("@Стоимость_стоянки", Price_Box.Text);
+                    command.Parameters.AddWithValue("@Скидки", Discounts_Box.Text);
+                    command.Parameters.AddWithValue("@Задолженности_по_оплате", Debt_Box.Text);
+                    command.Parameters.AddWithValue("@Статус", Status_ComboBox.SelectedItem.ToString());
+                    command.Parameters.AddWithValue("@Номер_авто", id);
 
-                        command.ExecuteNonQuery();
+                    int rowsAffected = command.ExecuteNonQuery();
+                    if (rowsAffected > 0)
+                    {
                         MessageBox.Show("Данные успешно обновлены!");
-                        LoadData();
                     }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Произошла ошибка: " + ex.Message);
+                    else
+                    {
+                        MessageBox.Show("Запись не найдена или не была изменена.");
+                    }
+                    LoadData();
                 }
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Произошла ошибка: " + ex.Message);
+            }
         }
+    }
+    else
+    {
+        MessageBox.Show("Выберите запись для редактирования.");
+    }
+}
+
 
         private void Delete_butt_Click(object sender, EventArgs e)
         {
             if (DataBaseGrid.SelectedRows.Count > 0)
             {
-                var id = DataBaseGrid.SelectedRows[0].Cells["ID"].Value.ToString();
+                var id = DataBaseGrid.SelectedRows[0].Cells["Номер авто"].Value.ToString();
+                MessageBox.Show("Удаление записи с ID: " + id); // Debugging line to check the ID being deleted
+
                 using (OleDbConnection connection = new OleDbConnection(connectionString))
                 {
                     try
                     {
                         connection.Open();
-                        string query = "DELETE FROM avto WHERE ID=@ID";
+                        string query = "DELETE FROM avto WHERE [Номер авто]=@Номер_авто";
                         using (OleDbCommand command = new OleDbCommand(query, connection))
                         {
-                            command.Parameters.AddWithValue("@ID", id);
+                            command.Parameters.AddWithValue("@Номер_авто", id);
 
-                            command.ExecuteNonQuery();
-                            MessageBox.Show("Данные успешно удалены!");
+                            int rowsAffected = command.ExecuteNonQuery();
+                            if (rowsAffected > 0)
+                            {
+                                MessageBox.Show("Данные успешно удалены!");
+                            }
+                            else
+                            {
+                                MessageBox.Show("Запись не найдена или не была удалена.");
+                            }
                             LoadData();
                         }
                     }
@@ -194,6 +219,7 @@ namespace Handy_Of_Plug_Scarlet_Blood_Fury
                 MessageBox.Show("Выберите запись для удаления.");
             }
         }
+
 
         private void Close_butt_Click(object sender, EventArgs e)
         {

@@ -53,6 +53,7 @@ namespace Handy_Of_Plug_Scarlet_Blood_Fury
             this.Date2_Box = new System.Windows.Forms.MaskedTextBox();
             this.ID_Box = new System.Windows.Forms.TextBox();
             this.Status_ComboBox = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DataBaseGrid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -72,9 +73,9 @@ namespace Handy_Of_Plug_Scarlet_Blood_Fury
             this.ID.ForeColor = System.Drawing.Color.White;
             this.ID.Location = new System.Drawing.Point(12, 332);
             this.ID.Name = "ID";
-            this.ID.Size = new System.Drawing.Size(18, 13);
+            this.ID.Size = new System.Drawing.Size(67, 13);
             this.ID.TabIndex = 2;
-            this.ID.Text = "ID";
+            this.ID.Text = "Номер авто";
             // 
             // Mark
             // 
@@ -320,12 +321,23 @@ namespace Handy_Of_Plug_Scarlet_Blood_Fury
             this.Status_ComboBox.TabIndex = 24;
             this.Status_ComboBox.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(859, 331);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(41, 13);
+            this.label3.TabIndex = 25;
+            this.label3.Text = "Статус";
+            // 
             // Form_admin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkGray;
             this.ClientSize = new System.Drawing.Size(1194, 426);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.Status_ComboBox);
             this.Controls.Add(this.Date2_Box);
             this.Controls.Add(this.Date_Box);
@@ -387,5 +399,6 @@ namespace Handy_Of_Plug_Scarlet_Blood_Fury
         private System.Windows.Forms.MaskedTextBox Date2_Box;
         private System.Windows.Forms.TextBox ID_Box;
         private System.Windows.Forms.ComboBox Status_ComboBox;
+        private System.Windows.Forms.Label label3;
     }
 }
